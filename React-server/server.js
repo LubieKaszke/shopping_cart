@@ -24,7 +24,7 @@ app.post('/addProduct', function (req, res) {
 
    fs.readFile( __dirname + "/" + "products.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
-      data.push({"id": data[data.length-1].id, "name": req.body.name, "description": req.body.description, "keywords": req.body.keywords, "image": req.body.image, "age": req.body.age, "price": req.body.price});
+      data.push({"id": data[data.length-1].id+1, "name": req.body.name, "description": req.body.description, "keywords": req.body.keywords, "image": req.body.image, "age": req.body.age, "price": req.body.price});
       fs.writeFile( __dirname + "/" + "products.json", JSON.stringify(data), function(err) {
         if (err) throw err;
         console.log('Data updated');
@@ -34,11 +34,13 @@ app.post('/addProduct', function (req, res) {
 })
 
 app.delete('/deleteProduct/:id', function (req, res) {
-  let idx = req.params.id;
-
+  let productIndex = req.params.id;
+  console.log("das");
    fs.readFile( __dirname + "/" + "products.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
-      data.splice(idx,1);
+      console.log(data);
+      data.filter(product => (product.id !== productIndex))
+      console.log(data);
       fs.writeFile( __dirname + "/" + "products.json", JSON.stringify(data), function(err) {
         if (err) throw err;
         console.log('Data updated');

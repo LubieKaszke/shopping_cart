@@ -7,16 +7,11 @@ export default function ProductListItem(props){
         <div>{props.product.description}</div>
         <div>${props.product.price}</div>
         <div>
-            <button onClick={() => props.addToCart(props.product)} >
-                Add to cart({
-                    (props.cartItem && props.cartItem.quantity) || 0
-                })</button> 
-                {
-                    props.cartItem ?
-                <button onClick={() => props.removeFromCart (props.cartItem)} >
-                Remove</button>
-                : null
-                }
+            <button onClick={() => props.addToCart(props.product)}>Add to cart({(props.cartItem && props.cartItem.quantity) || 0})</button> 
+            { props.cartItem
+            ?<button onClick={() => props.removeFromCart (props.cartItem)}>Remove</button> 
+            : null}
+            <button onClick={() => props.removeProduct(props.product.id)}>Remove Product</button>
         </div>
     </div>
 }
