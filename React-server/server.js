@@ -1,73 +1,72 @@
 const express = require('express');
 const app = express();
+var fs = require("fs");
+var bodyParser = require('body-parser');
 const port = process.env.PORT || 8081;
 var cors = require('cors')
+
 app.use(cors());
-
-var Meals = [{
-    "nazwa": "kot",
-    "cena": 123,
-    "opis": "do jedzenia"
-  },
-  {
-    "nazwa": "pies",
-    "cena": 12,
-    "opis": "biega"
-  },
-  {
-    "nazwa": "kebab",
-    "cena": 1,
-    "opis": "do jedzenia"
-  }];
-
-var Tables=[{
-    "id": "1",
-    "zajety": "tak"
-  },
-  {
-    "id": "2",
-    "zajety": "nie"
-  },
-  {
-    "id": "3",
-    "zajety": "tak"
-  }]
-;
-
-var Orders=[
-
-];
-
-var sessionOrder={
-  "imie": "",
-  "nazwisko": "",
-  "table":"",
-  "meals":[]
-};
+app.use(bodyParser());
 
 // console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// create a GET route
-app.get('/meals', function (req, res) {
-  res.send(Meals);
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
 });
 
-app.get('/tables', function (req, res) {
-  res.send(Tables);
+app.get('/products', function (req, res) {
+  fs.readFile( __dirname + "/" + "products.json", 'utf8', function (err, data) {
+      res.send( JSON.parse( data ) );
+   });
 });
 
-app.get('/orders', function (req, res) {
-  res.send(Orders);
-});
 
-app.get('/sessionOrder', function (req, res) {
-  res.send(sessionOrder);
-});
+app.post('/addProduct', function (req, res) {
+
+   fs.readFile( __dirname + "/" + "products.json", 'utf8', function (err, data) {
+      data = JSON.parse( data );
+      data.push({"id": data[data.length-1].id, "name": req.body.name, "description": req.body.description, "keywords": req.body.keywords, "image": req.body.image, "age": req.body.age, "price": req.body.price});
+      fs.writeFile( __dirname + "/" + "products.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('Data updated');
+      });
+      res.send(data);
+   });
+})
+
+app.delete('/deleteProduct/:id', function (req, res) {
+  let idx = req.params.id;
+
+   fs.readFile( __dirname + "/" + "products.json", 'utf8', function (err, data) {
+      data = JSON.parse( data );
+      data.splice(idx,1);
+      fs.writeFile( __dirname + "/" + "products.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('Data updated');
+      });
+      res.send(data);
+   });
+})
+
+app.put('/editProduct/:id' function(req, res) {
+  let idx = req.params.id;
+  let productTo = req.body;
+
+  fs.readFile( __dirname + "/" + "products.json", 'utf8', function (err, data) {
+    data = JSON.parse( data );
+    productTo.map((element,index) => {
+      data[idx][element] = productTo[element];
+    })
+    fs.writeFile( __dirname + "/" + "products.json", JSON.stringify(data), function(err) {
+        if (err) throw err;
+        console.log('Data updated');
+      });
+      res.send(data);
+  });
+})
 
 app.post('/sessionOrder', function (req,res) {
   var order = req.body;
-  //console.log(req);
+
   for (var i = 0; i < orders.length; i++) {
     if (orders[i].imie === order.imie) {
       if(orders[i].nazwisko===order.nazwisko){
@@ -76,6 +75,7 @@ app.post('/sessionOrder', function (req,res) {
       }
     }
   }
+
   orders.push(order);
   console.log("post");
   res.send(order);
