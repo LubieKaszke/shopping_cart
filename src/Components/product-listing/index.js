@@ -3,6 +3,7 @@ import ProductListItem from './product-list-item'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { cartItemsWithQuantities } from '../cart';
+import { deleteProduct } from '../product/productsReducer';
 function ProductListing(props){
     return <div>
         {
@@ -12,6 +13,7 @@ function ProductListing(props){
             product={product}
             removeFromCart ={props.removeFromCart}
             addToCart={props.addToCart}
+            removeProduct={props.removeProduct}
             cartItem={props.cart.filter(cartItem => cartItem.id === product.id)[0]}
             />)
         }
@@ -32,6 +34,9 @@ function mapDispatchToProps(dispatch){
         },
         removeFromCart: (item) =>{
             dispatch({type: 'REMOVE', payload: item})
+        },
+        removeProduct: (id) =>{
+            dispatch(deleteProduct(id))
         }
     }
 }
