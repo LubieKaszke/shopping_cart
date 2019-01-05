@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Field, reduxForm} from 'redux-form/immutable';
-import InputField from './input';
 import {
 	formHasErrorsSelector,
 	getFormErrorsSelector
@@ -12,50 +11,8 @@ import {
 	formSubmitSucceededAction
 } from './actions';
 import validate from './validate';
-import listFormErrors from './helpers';
-
-const renderInputComponent = ({ input: {name,onChange,value}}) => {
-    let text;
-    let fieldName;
-
-    switch(name){
-    case 'name':
-        text = 'Name:';
-        fieldName = 'name';
-        break;
-    case 'surname':
-        text = 'Surname:';
-        fieldName = 'surname';
-        break;
-    case 'email':
-        text = 'E-mail:';
-        fieldName = 'email';
-        break;
-    case 'city':
-        text = 'City:';
-        fieldName = 'city';
-        break;
-    case 'zipcode':
-        text = 'Zip Code:';
-        fieldName = 'zipcode';
-        break;
-    case 'adress':
-        text = 'Adress';
-        fieldName = 'adress';
-        break;
-    default:
-        text = '';
-        fieldName = '';
-    }
-    return (
-        <InputField
-            value ={value}
-            onChange={onChange}
-            text={text}
-            fieldName={fieldName}
-            />
-    );
-};
+import { listFormErrors } from './helpers';
+import { renderInputComponent } from './helpers';
 
 const OrderForm = ({handleSubmit,errors,formHasErrors}) => (
     <form onSubmit ={handleSubmit(validate)}>
@@ -91,11 +48,10 @@ const OrderForm = ({handleSubmit,errors,formHasErrors}) => (
 				component={renderInputComponent}
 			/>
 
-            <button type ="submit">Submit</button>
-            {formHasErrors &&
-				<div className="register-form__form-errors">{listFormErrors(errors)}</div>
-                }
-        
+        <button type ="submit">Submit</button>
+        {formHasErrors &&
+			<div className="register-form__form-errors">{listFormErrors(errors)}</div>
+        }
         </div>
     </form>
 );
@@ -132,4 +88,4 @@ const OrderFormConnect = connect(mapStateToProps,null)(
         onSubmitSuccess:(values,dispatch) => dispatch(formSubmitSucceededAction(values))
     })(OrderForm));
 
-    export default OrderFormConnect;
+export default OrderFormConnect;

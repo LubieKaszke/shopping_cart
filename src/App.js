@@ -9,6 +9,7 @@ const Navigation =(props) => <nav>
   <li><NavLink to ='/' >Home</NavLink></li>
   <li><NavLink to ='/cart' >Cart</NavLink></li>
   <li><NavLink to ='/checkout' >Checkout</NavLink></li>
+  <li><NavLink to ='/newProduct' >New Product</NavLink></li>
 </ul>
 </nav>
 

@@ -1,25 +1,22 @@
 
-import {createStore, combineReducers,applyMiddleware,compose } from 'redux';
+import {createStore, applyMiddleware,compose } from 'redux';
+import {combineReducers} from 'redux-immutable';
 import cartReducer from '../Components/cart/reducer'
 import productsReducer from '../Components/product/productsReducer';
 import thunk from 'redux-thunk';
 import reduxFormSampleReducer from '../Components/form/reducer'
+import reduxProductFormSampleReducer from '../Components/form/productReducer'
 import { reducer as reduxFormReducer} from 'redux-form/immutable';
 
 const rootReducer = combineReducers ({
     cart: cartReducer,
     form: reduxFormReducer,
     products: productsReducer,
-    reduxForm: reduxFormSampleReducer
+    reduxForm: reduxFormSampleReducer,
+    reduxProductForm: reduxProductFormSampleReducer
 
 })
 
-// const store = createStore(
-//     rootReducer,
-//     applyMiddleware(thunk),
-//      /* preloadedState, */
-// +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// )
 
 const composeEnhancers =
   typeof window === 'object' &&

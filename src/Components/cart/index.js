@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const sort = (items) => {
-    return items.sort((a, b) => a.id < b.id)
-  }
+// const sort = (items) => {
+//     return items.sort((a, b) => a.id < b.id)
+//   }
 
 
 
@@ -20,7 +20,7 @@ function Cart(props){
         </thead>
         <tbody>
             {
-                sort(props.cart).map(item => <tr>
+                props.cart.map(item => <tr>
                     <td>{item.name} </td>
                     <td>{item.quantity}</td>
                     <td>{(item.price * item.quantity).toFixed(2)}</td>
@@ -42,7 +42,7 @@ function Cart(props){
 
 function mapStateToProps(state){
     return{
-        cart: state.cart,
+        cart: state.get('cart'),
     }
 }
 

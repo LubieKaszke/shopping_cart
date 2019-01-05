@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { cartItemsWithQuantities } from '../cart';
 function ProductListing(props){
+    
     return <div>
         {
             props.products.map( product =>
@@ -20,8 +21,8 @@ function ProductListing(props){
 
 function mapStateToProps(state){
     return{
-        cart: state.cart,
-        products: state.products
+        cart: state.get('cart'),
+        products: state.get('products')
     }
 }
 
