@@ -6,8 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import React, { Component } from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
+import { getAllProducts } from './Components/product/productsReducer';
 
 import store from './config/store'
+
+store.dispatch(getAllProducts());
 
 const app = <Provider store={store}>
     <BrowserRouter>

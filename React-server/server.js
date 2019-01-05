@@ -47,7 +47,7 @@ app.delete('/deleteProduct/:id', function (req, res) {
    });
 })
 
-app.put('/editProduct/:id' function(req, res) {
+app.put('/editProduct/:id', function(req, res) {
   let idx = req.params.id;
   let productTo = req.body;
 
