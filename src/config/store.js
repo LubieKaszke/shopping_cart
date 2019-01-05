@@ -4,12 +4,13 @@ import cartReducer from '../Components/cart/reducer'
 import productsReducer from '../Components/product/productsReducer';
 import thunk from 'redux-thunk';
 import reduxFormSampleReducer from '../Components/form/reducer'
-// import { reducer as reduxFormReducer} from 'redux-form/immutable';
+import { reducer as reduxFormReducer} from 'redux-form/immutable';
 
 const rootReducer = combineReducers ({
     cart: cartReducer,
-    form: reduxFormSampleReducer,
-    products: productsReducer
+    form: reduxFormReducer,
+    products: productsReducer,
+    reduxForm: reduxFormSampleReducer
 
 })
 
