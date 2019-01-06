@@ -51,3 +51,8 @@
   flex-direction:row;
 
 }
+
+.form-errors{
+  color: #B33A3A;
+  font-weight: bold;
+}

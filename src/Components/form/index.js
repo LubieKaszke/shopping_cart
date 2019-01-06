@@ -50,7 +50,7 @@ const OrderForm = ({handleSubmit,errors,formHasErrors}) => (
 
         <button type ="submit">Submit</button>
         {formHasErrors &&
-			<div className="register-form__form-errors">{listFormErrors(errors)}</div>
+			<div className="form-errors">{listFormErrors(errors)}</div>
         }
         </div>
     </form>
