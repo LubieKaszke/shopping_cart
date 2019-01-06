@@ -8,10 +8,10 @@ import {Navbar, NavItem,Nav } from 'react-bootstrap';
 const Navigation =(props) => 
 <Navbar>
   <Nav>
-  <NavItem eventKey ={1}><NavLink to ='/' >Home</NavLink></NavItem>
-  <NavItem><NavLink to ='/cart' >Cart</NavLink></NavItem>
-  <NavItem><NavLink to ='/checkout' >Checkout</NavLink></NavItem>
-  <NavItem><NavLink to ='/newProduct' >New Product</NavLink></NavItem>
+  <NavItem componentClass='span'><NavLink to ='/' >Home</NavLink></NavItem>
+  <NavItem componentClass='span'><NavLink to ='/cart' >Cart</NavLink></NavItem>
+  <NavItem componentClass='span'><NavLink to ='/checkout' >Checkout</NavLink></NavItem>
+  <NavItem componentClass='span'><NavLink to ='/newProduct' >New Product</NavLink></NavItem>
 </Nav>
 </Navbar>
 

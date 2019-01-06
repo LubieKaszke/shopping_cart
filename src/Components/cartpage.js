@@ -1,6 +1,6 @@
 import React from 'react';
 import Cart from './cart';
-import {Grid, Row,Col} from 'react-bootstrap';
+import {Grid, Row} from 'react-bootstrap';
 
 export default function CartPage(props){
 
