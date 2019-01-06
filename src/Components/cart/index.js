@@ -30,7 +30,7 @@ function Cart(props){
                         <Button bsStyle="success" onClick={ () => props.removeFromCart(item)}>-</Button>
                     </td>
                     <td>
-                        <Button  bsStyle="danger "onClick ={ ()=> props.removeAllFromCart(item)}>Remove all from Cart</Button>
+                        <Button  bsStyle="danger" onClick ={ ()=> props.removeAllFromCart(item)}>Remove all from Cart</Button>
                     </td>
                     </tr>)
             }
