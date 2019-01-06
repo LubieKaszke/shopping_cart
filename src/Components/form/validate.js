@@ -2,11 +2,9 @@ import {SubmissionError} from 'redux-form/immutable';
 import * as R from 'ramda';
 
 const validate =(values) => {
-    console.log(values);
     const stringPattern = /^[A-Za-z]+$/;
-    const zipCodePattern = /[0-9]{2}\-[0-9]{3}/;
+    const zipCodePattern = /[0-9]{2}-[0-9]{3}/;
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    const agePattern = /^[0-9]+(,[0-9]+)/;
     const errors ={};
     const name = values.get('name');
     const surname = values.get('surname');
@@ -14,10 +12,6 @@ const validate =(values) => {
     const city = values.get('city');
     const adress = values.get('adress');
     const zipcode = values.get('zipcode');
-    const description = values.get('description');
-    const price = values.get('price');
-    const keywords = values.get('keywords')
-    const age = values.get('age');
 
 
 

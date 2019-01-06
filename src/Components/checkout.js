@@ -1,5 +1,4 @@
 import React from 'react';
-import Cart from './cart';
 import OrderForm from './form/index';
 
 export default function CheckoutPage(props){

@@ -9,7 +9,7 @@ export const formSubmitFailedAction = value => ({
 });
 
 export const PRODUCT_FORM_SUBMIT_SUCCEEDED = 'ProductForm/FORM_SUBMIT_SUCCEEDED';
-export const productFormSubmitSucceededAction = value => ({
+export const productFormSubmitSucceededAction = values => ({
 	type: PRODUCT_FORM_SUBMIT_SUCCEEDED
 });
 
