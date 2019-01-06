@@ -1,12 +1,17 @@
 import React from 'react';
-import Cart from './cart';
 import OrderForm from './form/index';
+import {Grid, Row,Col} from 'react-bootstrap';
 
 export default function CheckoutPage(props){
 
-    return <div>
-        <h1>Your Order</h1>
-        <h2>To complete the order fill out the form </h2>
-        <OrderForm />
-    </div>
+    return <Grid>
+        <Row >
+    <h1 className="homepage">Your Order</h1>
+    <h2>To complete the order fill out the form </h2>
+        </Row>
+        <Row>
+        <OrderForm/>
+    </Row>
+         </Grid>
 }
+

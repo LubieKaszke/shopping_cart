@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import './App.css';
 import { NavLink} from 'react-router-dom';
 import Router from './Router';
+import {Navbar, NavItem,Nav } from 'react-bootstrap';
 
 
-const Navigation =(props) => <nav>
-<ul>
-  <li><NavLink to ='/' >Home</NavLink></li>
-  <li><NavLink to ='/cart' >Cart</NavLink></li>
-  <li><NavLink to ='/checkout' >Checkout</NavLink></li>
-  <li><NavLink to ='/newProduct' >New Product</NavLink></li>
-</ul>
-</nav>
+const Navigation =(props) => 
+<Navbar>
+  <Nav>
+  <NavItem eventKey ={1}><NavLink to ='/' >Home</NavLink></NavItem>
+  <NavItem><NavLink to ='/cart' >Cart</NavLink></NavItem>
+  <NavItem><NavLink to ='/checkout' >Checkout</NavLink></NavItem>
+  <NavItem><NavLink to ='/newProduct' >New Product</NavLink></NavItem>
+</Nav>
+</Navbar>
+
 
 class App extends Component {
   render() {

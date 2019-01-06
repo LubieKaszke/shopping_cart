@@ -16,6 +16,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-bottom: 20px;
 }
 
 .App-link {
@@ -29,4 +30,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.purchase-card {
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1em;
+  margin: 20px;
+}
+
+.homepage{
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.product-listing{
+  display:flex;
+  flex:1;
+  flex-wrap:wrap;
+  flex-direction:row;
+
 }

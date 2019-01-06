@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { cartItemsWithQuantities } from '../cart';
 import { deleteProduct } from '../product/productsReducer';
-import Sort from '../sort';
 function ProductListing(props){
-    console.log(props);
-    return <div>
+
+    return <div className ="product-listing">
        
         {
             

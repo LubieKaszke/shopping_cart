@@ -1,10 +1,16 @@
 import React from 'react';
 import ProductListing from './product-listing';
+import {Grid, Row,Col} from 'react-bootstrap';
 
 export default function HomePage(props){
 
-    return <div>
-        <h1>Homepage</h1>
+    return <Grid>
+    <Row >
+        <h1 className="homepage">Homepage</h1>
+    </Row>
+    <Row>
         <ProductListing />
-    </div>
+    </Row>
+</Grid>
 }
+

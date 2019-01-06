@@ -16,7 +16,7 @@ import { renderInputComponent } from './helpers';
 
 const OrderForm = ({handleSubmit,errors,formHasErrors}) => (
     <form onSubmit ={handleSubmit(validate)}>
-        <div className="register-form">
+        <div className="">
         <Field
 				name="name"
 				type="text"

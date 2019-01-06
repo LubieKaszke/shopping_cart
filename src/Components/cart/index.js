@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Table, Button} from 'react-bootstrap';
 
 // const sort = (items) => {
 //     return items.sort((a, b) => a.id < b.id)
@@ -8,7 +9,7 @@ import {connect} from 'react-redux'
 
 
 function Cart(props){
-    return <table>
+    return <Table striped bordered condensed hover>
         <thead> 
             <tr>
                 <th>Item</th>
@@ -25,11 +26,11 @@ function Cart(props){
                     <td>{item.quantity}</td>
                     <td>{(item.price * item.quantity).toFixed(2)}</td>
                     <td>
-                        <button onClick={ () => props.addToCart(item)}>+</button>
-                        <button onClick={ () => props.removeFromCart(item)}>-</button>
+                        <Button bsStyle="success" onClick={ () => props.addToCart(item)}>+</Button>
+                        <Button bsStyle="success" onClick={ () => props.removeFromCart(item)}>-</Button>
                     </td>
                     <td>
-                        <button onClick ={ ()=> props.removeAllFromCart(item)}>Remove all from Cart</button>
+                        <Button  bsStyle="danger "onClick ={ ()=> props.removeAllFromCart(item)}>Remove all from Cart</Button>
                     </td>
                     </tr>)
             }
@@ -37,7 +38,7 @@ function Cart(props){
                 <th>Total: </th>
             </tr>
         </tbody>
-    </table>
+    </Table>
 }
 
 function mapStateToProps(state){
