@@ -21,7 +21,7 @@ function Cart(props){
         </thead>
         <tbody>
             {
-                props.cart.map(item => <tr>
+                props.cart.map(item => <tr key={item.id}>
                     <td>{item.name} </td>
                     <td>{item.quantity}</td>
                     <td>{(item.price * item.quantity).toFixed(2)}</td>
@@ -35,10 +35,28 @@ function Cart(props){
                     </tr>)
             }
             <tr>
-                <th>Total: </th>
+                <th>Total: {sumPriceInCart(props.cart)}</th>
             </tr>
         </tbody>
     </Table>
+}
+
+function sumPriceInCart(cart) {
+    var total =0;
+    if(Array.isArray(cart)) {
+        if(cart.length > 0) {
+            total = cart.map(price).reduce(sum)
+            return total;
+        }
+    }
+}
+
+function price(item){
+  return item.price * item.quantity;
+}
+
+function sum(prev, next){
+  return prev + next;
 }
 
 function mapStateToProps(state){

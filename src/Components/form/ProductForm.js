@@ -13,6 +13,7 @@ import {
 import productValidate from './productValidate';
 import { listFormErrors } from './helpers';
 import { renderInputComponent } from './helpers';
+import { createProduct } from '../product/productsReducer'
 
 const ProductForm = ({handleSubmit,errors,formHasErrors}) => (
     <form onSubmit ={handleSubmit(productValidate)}>
@@ -78,7 +79,10 @@ const ProductFormConnect = connect(mapStateToProps,null)(
         form: 'productForm',
         onSubmitFail:(errors,dispatch) => dispatch(productFormSubmitFailedAction()),
         onSubmit: values => values,
-        onSubmitSuccess:(values,dispatch) => dispatch(productFormSubmitSucceededAction(values))
+        onSubmitSuccess:(values,dispatch) => {
+            dispatch(productFormSubmitSucceededAction(values));
+            dispatch(createProduct(values));
+        }
     })(ProductForm));
 
 

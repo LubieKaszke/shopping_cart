@@ -13,7 +13,7 @@ const InputField =({
     </div>
 );
 
-InputField.PropTypes ={
+InputField.propTypes ={
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,

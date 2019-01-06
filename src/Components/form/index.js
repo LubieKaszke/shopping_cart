@@ -56,7 +56,7 @@ const OrderForm = ({handleSubmit,errors,formHasErrors}) => (
     </form>
 );
 
-OrderForm.PropTypes ={
+OrderForm.propTypes ={
     handleSubmit: PropTypes.func.isRequired,
     formHasErrors: PropTypes.bool.isRequired,
     errors: PropTypes.shape({

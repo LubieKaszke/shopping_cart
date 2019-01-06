@@ -7,7 +7,7 @@ const productValidate =(values) => {
     const agePattern = /^[0-9]+(,[0-9]+)/;
     const pricePattern =/(\d+\.\d{1,2})/;
     const errors ={};
-    const productName = values.get('productName');
+    const productName = values.get('name');
     const description = values.get('description');
     const price = values.get('price');
     const keywords = values.get('keywords')

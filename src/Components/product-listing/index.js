@@ -2,7 +2,6 @@ import React from 'react';
 import ProductListItem from './product-list-item'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { cartItemsWithQuantities } from '../cart';
 import { deleteProduct } from '../product/productsReducer';
 function ProductListing(props){
 
