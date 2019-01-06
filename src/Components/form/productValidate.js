@@ -5,6 +5,7 @@ const productValidate =(values) => {
     console.log(values);
     const stringPattern = /^[A-Za-z]+$/;
     const agePattern = /^[0-9]+(,[0-9]+)/;
+    const pricePattern =/(\d+\.\d{1,2})/;
     const errors ={};
     const productName = values.get('name');
     const description = values.get('description');
@@ -25,7 +26,9 @@ const productValidate =(values) => {
 
   if (R.isNil(price)) {
         errors.price = 'field "Price" can\'t be empty';
-    }
+    } else if (!pricePattern.test(price)) {
+        errors.price = 'field "Price" have to be number in format xx.xx';
+  }
 
   if (R.isNil(age)) {
         errors.age = 'field "Age" can\'t be empty';

@@ -2,6 +2,7 @@
 import {createStore, applyMiddleware,compose } from 'redux';
 import {combineReducers} from 'redux-immutable';
 import cartReducer from '../Components/cart/reducer'
+import sortReducer from '../Components/sort/reducer'
 import productsReducer from '../Components/product/productsReducer';
 import thunk from 'redux-thunk';
 import reduxFormSampleReducer from '../Components/form/reducer'
@@ -13,7 +14,8 @@ const rootReducer = combineReducers ({
     form: reduxFormReducer,
     products: productsReducer,
     reduxForm: reduxFormSampleReducer,
-    reduxProductForm: reduxProductFormSampleReducer
+    reduxProductForm: reduxProductFormSampleReducer,
+    sort :sortReducer
 
 })
 

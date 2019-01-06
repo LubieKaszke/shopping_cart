@@ -3,10 +3,13 @@ import ProductListItem from './product-list-item'
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { deleteProduct } from '../product/productsReducer';
+import Sort from '../sort';
 function ProductListing(props){
-    
+    console.log(props);
     return <div>
+       
         {
+            
             props.products.map( product =>
             <ProductListItem 
             key={product.id}
