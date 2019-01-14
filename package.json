@@ -8,6 +8,7 @@
     "ramda": "^0.26.1",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
+    "react-data-sort": "^1.2.0",
     "react-dom": "^16.6.3",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
